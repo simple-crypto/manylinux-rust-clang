@@ -8,4 +8,4 @@ ARG PLATFORM
 RUN echo manylinux: $MANYLINUX_BASE
 RUN echo rust: $RUST_VERSION
 RUN echo platform: $PLATFORM
-RUN yum install clang
+RUN yum -y install clang
