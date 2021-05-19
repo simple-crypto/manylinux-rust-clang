@@ -8,4 +8,8 @@ ARG PLATFORM
 RUN echo manylinux: $MANYLINUX_BASE
 RUN echo rust: $RUST_VERSION
 RUN echo platform: $PLATFORM
-RUN yum -y install clang
+RUN yum -y install centos-release-scl
+RUN yum -y install llvm-toolset-7.0
+ENTRYPOINT ["manylinux-entrypoint", "scl", "enable", "llvm-toolset-7.0"]
+
+
