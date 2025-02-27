@@ -21,7 +21,7 @@ RUN cd /root \
     && curl -O https://libntl.org/ntl-$NTL_VERSION.tar.gz \
     && tar xzf ntl-$NTL_VERSION.tar.gz \
     && cd ntl-$NTL_VERSION/src \
-    && ./configure \
+    && ./configure CXXFLAGS=-fPIC \
     && make -j 2 \
     && make install \
     && cd /root \
