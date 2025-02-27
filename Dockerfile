@@ -22,8 +22,7 @@ RUN cd /root \
     && tar xzf ntl-$NTL_VERSION.tar.gz \
     && cd ntl-$NTL_VERSION/src \
     && ./configure \
-    && make \
-    && make check \
+    && make -j 2 \
     && make install \
     && cd /root \
 	&& rm -rf ntl-$NTL_VERSION ntl-$NTL_VERSION.tar.gz
