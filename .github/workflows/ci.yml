@@ -14,8 +14,9 @@ jobs:
       matrix:
         include:
           - manylinux_base: manylinux_2_28
-            rust_version: 1.83.0
+            rust_version: 1.85.0
             platform: x86_64
+            ntl_version: 11.5.1
     steps:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -37,6 +38,7 @@ jobs:
           build-args: |
             MANYLINUX_BASE=${{ matrix.manylinux_base }}
             RUST_VERSION=${{ matrix.rust_version }}
+            NTL_VERSION=${{ matrix.ntl_version }}
             PLATFORM=${{ matrix.platform }}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
